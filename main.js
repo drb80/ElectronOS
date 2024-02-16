@@ -1,7 +1,10 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron/main')
 const path = require('node:path')
+const si = require('systeminformation')
 
 async function handleFileOpen () {
+  const b = await si.cpu()
+  console.log(b.brand)
   const { canceled, filePaths } = await dialog.showOpenDialog()
   if (!canceled) {
     return filePaths[0]
