@@ -1,7 +1,7 @@
-const btn = document.getElementById('btn')
-const filePathElement = document.getElementById('filePath')
+document.addEventListener('DOMContentLoaded',pageLoaded)
 
-btn.addEventListener('click', async () => {
-  const filePath = await window.electronAPI.openFile()
-  filePathElement.innerText = filePath
-})
+async function pageLoaded(){
+  const cpuBrand = await window.electronAPI.cpuBrand()
+  const cpuBrandElement = document.getElementById('cpuBrand')
+  cpuBrandElement.innerText = cpuBrand
+}
