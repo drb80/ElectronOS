@@ -1,7 +1,7 @@
 # ElectronOS
 Using node.js to retrieve OS-specific data in Electron
 ```
-npm install
+npm ci
 npm start
 ```
 should get you going. To start from scratch:
