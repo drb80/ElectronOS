@@ -2,7 +2,7 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron/main')
 const path = require('node:path')
 const si = require('systeminformation')
 
-async function handleFileOpen () {
+async function cpuBrand () {
   const b = await si.cpu()
   return b.brand
 }
@@ -14,11 +14,11 @@ function createWindow () {
     }
   })
   mainWindow.loadFile('index.html')
-  mainWindow.openDevTools()
+  // mainWindow.openDevTools()
 }
 
 app.whenReady().then(() => {
-  ipcMain.handle('dialog:cpuBrand', handleFileOpen)
+  ipcMain.handle('dialog:cpuBrand', cpuBrand)
   createWindow()
   app.on('activate', function () {
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
